@@ -1,0 +1,29 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: mysql-client install
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install -y gcc make libmysqlclient-dev zlib1g-dev libpcre3-dev mysql-server git
+    - name: brathena-configure
+      run: |
+        sh ./configure --enable-64bit
+    - name: brathena-make
+      run: |
+        make clean
+        make sql
