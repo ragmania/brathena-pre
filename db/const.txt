@@ -247,6 +247,8 @@ mf_allowks	48
 mf_monster_noteleport	49
 mf_pvp_nocalcrank	50
 mf_battleground	51
+mf_reset	52
+mf_nostorage	53
 
 cell_walkable	0
 cell_shootable	1

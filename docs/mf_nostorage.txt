@@ -1,0 +1,28 @@
+---------------------------------------
+*mf_nostorage
+
+Permite bloquear a abertura de storage para jogadores no mapa em que for definida.
+Existem 3 configurações possíveis para esta mapflag.
+
+1ª Configuração:
+```
+	// Bloqueia a abertura de storage por comando @storage
+	// As kafras conseguem abrir storage do player.
+	prontera	mapflag	nostorage	1
+```
+
+2ª Configuração:
+```
+	// Bloqueia a abertura de storage por comando de npc.
+	// As kafras não conseguem abrir storage do player.
+	// O Jogador consegue usar o @storage
+	prontera	mapflag	nostorage	2
+```
+
+3ª Configuração:
+```
+	// Bloqueia a abertura de storage
+	// As kafras não conseguem abrir storage do player.
+	// O Jogador não consegue usar o @storage
+	prontera	mapflag	nostorage	3
+```
