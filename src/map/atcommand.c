@@ -1153,6 +1153,14 @@ ACMD_FUNC(storage)
 	if (sd->npc_id || sd->state.vending || sd->state.buyingstore || sd->state.trading || sd->state.storage_flag)
 		return -1;
 
+	// O Mapa possui restrição para abrir o armazém?
+	// A Trava 0x1 é uma trava de comando, impede de abrir por @storage.
+	// [CarlosHenrq, 2020-07-21]
+	if ((map[sd->bl.m].flag.nostorage & 0x1)) {
+		clif_displaymessage(sd->fd, msg_txt(527));
+		return -1;
+	}
+
 	if (storage_storageopen(sd) == 1)
 	{	//Already open.
 		clif_displaymessage(fd, msg_txt(250));

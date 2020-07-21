@@ -492,6 +492,7 @@ struct map_data {
 		unsigned guildlock :1;
 		unsigned src4instance : 1; // To flag this map when it's used as a src map for instances
 		unsigned reset :1; // [Daegaladh]
+		unsigned nostorage : 2; // [CarlosHenrq, 2020-07-21]
 	} flag;
 	struct point save;
 	struct npc_data *npc[MAX_NPC_PER_MAP];

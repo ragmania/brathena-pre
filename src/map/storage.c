@@ -101,6 +101,14 @@ int storage_storageopen(struct map_session_data *sd)
 		return 1;
 	}
 
+	// O Mapa possui restrição para abrir o armazém?
+	// A Trava 0x2 é uma trava global, impede de abrir até por kafra.
+	// [CarlosHenrq, 2020-07-21]
+	if ((map[sd->bl.m].flag.nostorage & 0x2)) {
+		clif_displaymessage(sd->fd, msg_txt(527));
+		return 1;
+	}
+
 	sd->state.storage_flag = 1;
 	storage_sortitem(sd->status.storage.items, ARRAYLENGTH(sd->status.storage.items));
 	clif_storagelist(sd, sd->status.storage.items, ARRAYLENGTH(sd->status.storage.items));
